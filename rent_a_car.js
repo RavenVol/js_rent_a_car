@@ -1,13 +1,15 @@
+"use strict";
+
 function calculateMe(form) {
-    var vacation = form.vacationDays.value;
+    const vacation = form.vacationDays.value;
 
     if ( vacation < 0 || isNaN(vacation) ) {
         alert('!!! Wrong data !!!');
         return;
     }
 
-    calculation = myPayment(vacation);
-    trickyCalculation = trickyPayment(vacation);
+    const calculation = myPayment(vacation);
+    const trickyCalculation = trickyPayment(vacation);
 
     alert('Your manager gives you $' + calculation[0] + ' off. And your payment will be $' + calculation[1] + '.');
 
