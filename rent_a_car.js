@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 function calculateMe(form) {
     const vacation = form.vacationDays.value;
@@ -8,24 +8,24 @@ function calculateMe(form) {
         return;
     }
 
-    const calculation = myPayment(vacation);
-    const trickyCalculation = trickyPayment(vacation);
+    const computedPrice = calculateMyPayment(vacation);
+    const computedTrickyPrice = calculateTrickyPayment(vacation);
 
-    alert('Your manager gives you $' + calculation[0] + ' off. And your payment will be $' + calculation[1] + '.');
+    alert('Your manager gives you $' + computedPrice[0] + ' off. And your payment will be $' + computedPrice[1] + '.');
 
-    if (calculation[0] < trickyCalculation[0]) {
+    if (computedPrice[0] < computedTrickyPrice[0]) {
         alert('BUT! If you\'ll be a little tricky...');
-        if (trickyCalculation[4] > 0) {
-            alert('And you\'ll rent a car: \n' + trickyCalculation[2] + ' times for 3 days, \n' + trickyCalculation[3] + ' times for 7 days and \n for ' + trickyCalculation[4] + ' days more...');
+        if (computedTrickyPrice[4] > 0) {
+            alert('And you\'ll rent a car: \n' + computedTrickyPrice[2] + ' times for 3 days, \n' + computedTrickyPrice[3] + ' times for 7 days and \n for ' + computedTrickyPrice[4] + ' days more...');
         } else {
-            alert('And you\'ll rent a car: \n' + trickyCalculation[2] + ' times for 3 days and \n' + trickyCalculation[3] + ' times for 7 days...');
+            alert('And you\'ll rent a car: \n' + computedTrickyPrice[2] + ' times for 3 days and \n' + computedTrickyPrice[3] + ' times for 7 days...');
         }
-        alert('There\'s nothing left to your manager but to offer you a $' + trickyCalculation[0] + ' discount. And you will pay $' + trickyCalculation[1] + ' for renting a car.')
+        alert('There\'s nothing left to your manager but to offer you a $' + computedTrickyPrice[0] + ' discount. And you will pay $' + computedTrickyPrice[1] + ' for renting a car.')
     }
 }
 
-function myPayment (vacationDays) {
-    let offer = [];
+function calculateMyPayment (vacationDays) {
+    const offer = [];
     if (vacationDays >= 7) {
         offer[0] = 50;
         offer[1] = vacationDays * 40 - 50;
@@ -40,8 +40,8 @@ function myPayment (vacationDays) {
 }
 
 
-function trickyPayment (vacationDays) {
-    let tricky = [];
+function calculateTrickyPayment (vacationDays) {
+    const tricky = [];
     let days = vacationDays;
     let discount = 0;
     let payment = days * 40;
